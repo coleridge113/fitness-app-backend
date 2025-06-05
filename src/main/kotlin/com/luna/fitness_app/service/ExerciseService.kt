@@ -18,6 +18,10 @@ class ExerciseService(
         return exerciseRepo.findById(id).orElse(null)
     }
 
+    fun getExerciseByPrimaryMuscle(primaryMuscle: String): List<Exercise>{
+        return exerciseRepo.findByPrimaryMuscle(primaryMuscle)
+    }
+
     fun createExercise(exercise: Exercise): String {
         return if(exerciseRepo.findByName(exercise.name) != null){
             "Exercise already exists!"

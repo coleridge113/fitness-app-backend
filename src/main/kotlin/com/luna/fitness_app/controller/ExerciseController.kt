@@ -29,9 +29,14 @@ class ExerciseController(
         return ResponseEntity(exerciseService.getAllExercises(), HttpStatus.OK)
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/id/{id}")
     fun getExerciseById(@PathVariable id: Int): ResponseEntity<Exercise?> {
         return ResponseEntity(exerciseService.getExerciseById(id), HttpStatus.OK)
+    }
+
+    @GetMapping("muscle/{primaryMuscle}")
+    fun getExerciseByPrimaryMuscle(@PathVariable primaryMuscle: String): ResponseEntity<List<Exercise>>{
+        return ResponseEntity(exerciseService.getExerciseByPrimaryMuscle(primaryMuscle), HttpStatus.OK)
     }
 
     @PostMapping("create")
