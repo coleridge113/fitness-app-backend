@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ExerciseRepo : JpaRepository<Exercise, Int> {
-     @Query(value="SELECT * FROM exercise WHERE name=:name", nativeQuery=true)
+    @Query(value="SELECT * FROM exercise WHERE name=:name", nativeQuery=true)
     fun findByName(name: String): Exercise?
 
-     @Query(value="SELECT * FROM exercise WHERE primary_muscle=:primaryMuscle", nativeQuery=true)
+    @Query(value="SELECT * FROM exercise WHERE primary_muscle=:primaryMuscle", nativeQuery=true)
     fun findByPrimaryMuscle(primaryMuscle: String): List<Exercise>
 }

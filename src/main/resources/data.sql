@@ -25,7 +25,7 @@ SET default_table_access_method = heap;
 -- Name: exercise; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE IF NOT EXISTS public.exercise (
+CREATE TABLE public.exercise (
     id integer NOT NULL,
     name character varying(255) NOT NULL,
     primary_muscle character varying(255) NOT NULL,
