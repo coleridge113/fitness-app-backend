@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestParam
 
 @CrossOrigin(origins = ["*"])
 @RestController
@@ -31,8 +32,8 @@ class ExerciseController(
         return ResponseEntity(exerciseService.getAllExercises(), HttpStatus.OK)
     }
 
-    @GetMapping("/id/{id}")
-    fun getExerciseById(@PathVariable id: Int): ResponseEntity<Exercise?> {
+    @GetMapping("")
+    fun getExerciseById(@RequestParam("id") id: Int): ResponseEntity<Exercise?> {
         return ResponseEntity(exerciseService.getExerciseById(id), HttpStatus.OK)
     }
 

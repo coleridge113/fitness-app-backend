@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class ExerciseService(
-    @Autowired
     private val exerciseRepo: ExerciseRepo
 ) {
     fun getAllExercises(): List<Exercise>{
