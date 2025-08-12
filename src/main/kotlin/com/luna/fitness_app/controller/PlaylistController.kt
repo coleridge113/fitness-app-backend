@@ -2,7 +2,6 @@ package com.luna.fitness_app.controller
 
 import com.luna.fitness_app.model.Playlist
 import com.luna.fitness_app.service.PlaylistService
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties.Http
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -29,7 +28,7 @@ class PlaylistController(
         }
     }
 
-    @PostMapping("create")
+    @PostMapping("/create")
     fun createPlaylist(@RequestBody playlist: Playlist): ResponseEntity<String>{
         val result = playlistService.createPlaylist(playlist)
         return when(result) {

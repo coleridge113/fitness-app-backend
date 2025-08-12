@@ -32,7 +32,7 @@ class PlaylistService(
     fun deletePlaylist(id: Int): String {
         return try {
             playlistRepo.deleteById(id)
-            "Exercise is successfully deleted!"
+            "Playlist is successfully deleted!"
         } catch (e: Exception) {
             e.printStackTrace()
             "Failed to delete playlist..."
