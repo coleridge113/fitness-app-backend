@@ -38,8 +38,14 @@ class ExerciseService(
     fun updateExercise(id: Int, exercise: Exercise): String {
         val existingExercise = exerciseRepo.findById(id).orElse(null)
         return if (existingExercise != null) {
-            existingExercise.name = exercise.name
-            existingExercise.primaryMuscle = exercise.primaryMuscle
+            existingExercise.apply {
+                name = exercise.name.ifBlank { name }
+                primaryMuscle = exercise.primaryMuscle.ifBlank { primaryMuscle }
+                secondaryMuscle = if(exercise.secondaryMuscle.isNullOrBlank()) secondaryMuscle else exercise.secondaryMuscle
+                equipment = if(exercise.equipment.isNullOrBlank()) equipment else exercise.equipment
+                description = if(exercise.description.isNullOrBlank()) description else exercise.description
+            }
+
             return try {
                 exerciseRepo.save(existingExercise)
                 "Exercise updated successfully!"
